@@ -1,6 +1,7 @@
 import "./MovieList.scss";
 import { Link, withRouter } from 'react-router-dom';
-import noImage from "../img/No-image.jpg"
+import PropTypes from "prop-types";
+import noImage from "../../No-image.jpg"
 
 const MovieList = ({movies, location}) => (
     <ul className="movie-list">
@@ -24,5 +25,10 @@ const MovieList = ({movies, location}) => (
         ))}
     </ul>
 )
+
+MovieList.propTypes = {
+    movies: PropTypes.array,
+    location: PropTypes.object,
+}
 
 export default withRouter(MovieList);

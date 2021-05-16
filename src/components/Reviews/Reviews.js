@@ -1,4 +1,6 @@
-const Reviews = ({reviews}) => (
+import PropTypes from "prop-types";
+
+const Reviews = ({ reviews }) => (
 <>
     {
         reviews.length > 1 ?
@@ -14,5 +16,9 @@ const Reviews = ({reviews}) => (
     }
 </>
 )
+
+Reviews.propTypes = {
+    reviews: PropTypes.array
+}
 
 export default Reviews;

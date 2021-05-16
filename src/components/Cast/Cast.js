@@ -1,4 +1,5 @@
-import noImage from "../img/No-image.jpg";
+import noImage from "../../No-image.jpg";
+import PropTypes from "prop-types";
 import "./Cast.scss"
 
 const Cast = ({ cast }) => (
@@ -16,5 +17,9 @@ const Cast = ({ cast }) => (
         </ul>
 
 )
+
+ Cast.propTypes = {
+   cast: PropTypes.array,
+ };
 
 export default Cast;
