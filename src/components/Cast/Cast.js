@@ -1,10 +1,12 @@
-import noImage from ".../img/No-image.jpg"
+import noImage from "../img/No-image.jpg";
+import "./Cast.scss"
 
 const Cast = ({ cast }) => (
-        <ul>
+        <ul className="cast">
             {cast.map(actor =>
-                <li >
+                <li className="cast__item" key={actor.name}>
                     <img
+                        className="cast__photo"
                         src={actor.profile_path? `https://image.tmdb.org/t/p/w300${actor.profile_path}`: noImage }
                         alt={actor.name}
                     ></img>

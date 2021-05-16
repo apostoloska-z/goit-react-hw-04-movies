@@ -1,3 +1,4 @@
+import "./Searchbar.scss"
 import { Component } from 'react';
 
 class Searchbar extends Component {
@@ -18,8 +19,9 @@ class Searchbar extends Component {
     render() {
         return (
 
-        <form onSubmit={this.handleSubmit}>
+        <form className="form" onSubmit={this.handleSubmit}>
             <input
+                className="form__input"
                 type="text"
                 autoComplete="off"
                 autoFocus
@@ -29,6 +31,7 @@ class Searchbar extends Component {
             >    
             </input>
             <button
+                className="form__button"
                 type="submit">
                  Search
             </button>
@@ -38,10 +41,5 @@ class Searchbar extends Component {
     }
 
 }
-    <form>
-        <input type="text"></input>
-        <button type="submit">Search</button>
-    </form>
-
 
 export default Searchbar;

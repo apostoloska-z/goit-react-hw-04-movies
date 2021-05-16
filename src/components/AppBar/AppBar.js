@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const AppBar = () => (
 
 
-    <header>
+    <header className="header">
 
         <NavLink
             exact

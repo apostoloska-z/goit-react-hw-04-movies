@@ -14,7 +14,7 @@ class MovieDetailsPageView extends Component {
         genres: [],
         cast: [],
         reviews: [],
-    }
+     }
 
     componentDidMount() {
         fetchMovieInfoById(this.props.match.params.movieId)
@@ -25,20 +25,34 @@ class MovieDetailsPageView extends Component {
         
         fetchReviewsById(this.props.match.params.movieId)
             .then(result => this.setState({ reviews: result }));
+
     }
+
+  handleGoBack = () => {
+    const { location, history } = this.props;
+
+    if (location.state && location.state.from) {
+      return history.push(location.state.from);
+    }
+
+    history.push("/");
+  };
+
+    
 
     render() {
         return (
-            <>
-                <button type="button">Go back</button>
-                <div>
+            <div className="movie-page__container">
+                <button className="button" type="button" onClick={this.handleGoBack}>Go back</button>
+                <div className="movie">
                     <img
+                        className="movie__poster"
                         src={ `https://image.tmdb.org/t/p/w500${this.state.poster_path} `}
                         alt={this.state.original_title}>
                     </img>
                     <div>
                         <h2>{this.state.original_title}</h2>
-                        <p>User Score: {this.state.vote_average}%</p>
+                        <p>User Score: {this.state.vote_average*10}%</p>
                         <h3>Overview</h3>
                         <p>
                             {this.state.overview}
@@ -53,17 +67,17 @@ class MovieDetailsPageView extends Component {
 
                     </div>
                 </div>
-                <div>
+                <div className="details">
                     <h3>Additional information</h3>
                     <ul>
-                        <li>
+                        <li className="details__item">
                             <NavLink
                             to={`${this.props.match.url}/cast`}
                             >
                             Cast
                             </NavLink>
                         </li>
-                        <li>
+                        <li className="details__item">
                             <NavLink
                             to={`${this.props.match.url}/reviews`}
                             >
@@ -73,12 +87,12 @@ class MovieDetailsPageView extends Component {
                     </ul>
                     <Route
                         path={`${this.props.match.path}/cast`}
-                        render={(props) => { return <Cast cast={this.state.cast} /> }} />
+                        render={() => { return <Cast cast={this.state.cast} /> }} />
                     <Route
                         path={`${this.props.match.path}/reviews`}
-                        render={(props) => { return <Reviews reviews={this.state.reviews} /> }} />
+                        render={() => { return <Reviews reviews={this.state.reviews} /> }} />
                 </div>
-            </>
+            </div>
         )
     }
 }

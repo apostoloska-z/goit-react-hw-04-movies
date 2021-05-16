@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  background-color: sandybrown;
+  padding: 30px 20px;
+}
+
+.nav-link {
+  display: block;
+  padding: 5px 15px;
+  text-decoration: none;
+  margin-right: 25px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.nav-link__active {
+  // border: 2px solid orangered;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 15px -3px #000000;
+  box-shadow: 5px 5px 15px -3px #000000;
+  background-color: #ff704d;
+}
